@@ -15,6 +15,13 @@ class Fixing extends StatefulWidget {
 
 class _Fixing extends State<Fixing> {
   int point = 0;
+
+  List<String> quotes = [
+    '1. The Lord is my Shepered',
+    '2. I shall not want',
+    '3. He makes me to lie down in greener pastures'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -120,6 +127,34 @@ class _Fixing extends State<Fixing> {
                   ),
                 ),
               ],
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            const Text(
+              'Favourite Quotes',
+              style: TextStyle(
+                color: Colors.amber,
+                fontSize: 16.0,
+              ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: quotes.map((quote) {
+                return Text(
+                  quote,
+                  style: const TextStyle(
+                    color: Colors.grey,
+                    fontSize: 18.0,
+                  ),
+                );
+              }).toList(),
+            ),
+            const SizedBox(
+              height: 10.0,
             ),
             const SizedBox(
               height: 20.0,
