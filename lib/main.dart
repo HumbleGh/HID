@@ -30,7 +30,7 @@ class _Fixing extends State<Fixing> {
         backgroundColor: Colors.grey[850],
         centerTitle: true,
         title: const Text(
-          'Title here',
+          'Practice',
           style: TextStyle(color: Colors.amber),
         ),
       ),
