@@ -23,6 +23,35 @@ class _Fixing extends State<Fixing> {
     Quote(text: 'He makes me to lie down in greener pastures', author: 'James'),
   ];
 
+  Widget quoteTemplate(quote) {
+    return Card(
+      margin: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
+      color: Colors.grey[200],
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              quote.text,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              quote.author,
+              style: const TextStyle(
+                  color: Colors.black,
+                  fontSize: 12.0,
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,71 +74,71 @@ class _Fixing extends State<Fixing> {
                 backgroundImage: AssetImage(
                   'assets/image1.jpg',
                 ),
-                radius: 40.0,
+                radius: 30.0,
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Divider(
               color: Colors.grey,
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Text(
               'Name',
               style: TextStyle(
                 color: Colors.amber,
                 // letterSpacing: 2.0,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             const Text(
               'Humble',
               style: TextStyle(
                 color: Colors.grey,
                 // letterSpacing: 2.0,
-                fontSize: 24.0,
+                fontSize: 18.0,
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Text(
               'Level',
               style: TextStyle(
                 color: Colors.amber,
                 // letterSpacing: 2.0,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             const Text(
               'Beginner Level',
               style: TextStyle(
                 color: Colors.grey,
                 // letterSpacing: 2.0,
-                fontSize: 24.0,
+                fontSize: 18.0,
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Text(
               'Email Adress',
               style: TextStyle(
                 color: Colors.amber,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             const Row(
               children: [
@@ -118,7 +147,7 @@ class _Fixing extends State<Fixing> {
                   color: Colors.grey,
                 ),
                 SizedBox(
-                  width: 20.0,
+                  width: 8.0,
                 ),
                 Text(
                   'humblebeginner@gmail.com',
@@ -140,19 +169,11 @@ class _Fixing extends State<Fixing> {
               ),
             ),
             const SizedBox(
-              height: 10.0,
+              height: 6.0,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: quotes.map((quote) {
-                return Text(
-                  '${quote.text} - ${quote.author}',
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 18.0,
-                  ),
-                );
-              }).toList(),
+              children: quotes.map((quote) => quoteTemplate(quote)).toList(),
             ),
             const SizedBox(
               height: 10.0,
@@ -164,7 +185,7 @@ class _Fixing extends State<Fixing> {
               'Points',
               style: TextStyle(
                 color: Colors.amber,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
             const SizedBox(
