@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quote.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -16,10 +17,10 @@ class Fixing extends StatefulWidget {
 class _Fixing extends State<Fixing> {
   int point = 0;
 
-  List<String> quotes = [
-    '1. The Lord is my Shepered',
-    '2. I shall not want',
-    '3. He makes me to lie down in greener pastures'
+  List<Quote> quotes = [
+    Quote(text: 'The Lord is my shepered', author: 'Psalms'),
+    Quote(text: 'I shall not want', author: 'Jesus'),
+    Quote(text: 'He makes me to lie down in greener pastures', author: 'James'),
   ];
 
   @override
@@ -145,7 +146,7 @@ class _Fixing extends State<Fixing> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: quotes.map((quote) {
                 return Text(
-                  quote,
+                  '${quote.text} - ${quote.author}',
                   style: const TextStyle(
                     color: Colors.grey,
                     fontSize: 18.0,
@@ -213,7 +214,7 @@ class _Fixing extends State<Fixing> {
                   color: Colors.amber,
                   size: 30.0,
                 ),
-              )
+              ),
             ]),
           ],
         ),
