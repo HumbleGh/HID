@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quote.dart';
+import 'quote_card.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -23,38 +24,10 @@ class _Fixing extends State<Fixing> {
     Quote(text: 'He makes me to lie down in greener pastures', author: 'James'),
   ];
 
-  Widget quoteTemplate(quote) {
-    return Card(
-      margin: const EdgeInsets.fromLTRB(0.0, 16.0, 0.0, 0.0),
-      color: Colors.grey[200],
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              quote.text,
-              style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 14.0,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              quote.author,
-              style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[900],
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.grey[850],
@@ -65,7 +38,7 @@ class _Fixing extends State<Fixing> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
+        padding: const EdgeInsets.fromLTRB(30.0, 20.0, 30.0, 0.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -159,13 +132,13 @@ class _Fixing extends State<Fixing> {
               ],
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             const Text(
               'Favourite Quotes',
               style: TextStyle(
                 color: Colors.amber,
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
             const SizedBox(
@@ -173,7 +146,16 @@ class _Fixing extends State<Fixing> {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: quotes.map((quote) => quoteTemplate(quote)).toList(),
+              children: quotes
+                  .map((quote) => QuoteCard(
+                        quote: quote,
+                        delete: () {
+                          setState(() {
+                            quotes.remove(quote);
+                          });
+                        },
+                      ))
+                  .toList(),
             ),
             const SizedBox(
               height: 10.0,
@@ -199,13 +181,13 @@ class _Fixing extends State<Fixing> {
               ),
             ),
             const SizedBox(
-              height: 20.0,
+              height: 10.0,
             ),
             Row(children: [
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    point += 1;
+                    point += 10;
                   });
                 },
                 child: const Text('Increase'),
@@ -216,7 +198,7 @@ class _Fixing extends State<Fixing> {
               ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    point -= 1;
+                    point -= 10;
                   });
                 },
                 child: const Text('Decrease'),
@@ -240,7 +222,6 @@ class _Fixing extends State<Fixing> {
           ],
         ),
       ),
-      backgroundColor: Colors.grey[900],
     );
   }
 }
