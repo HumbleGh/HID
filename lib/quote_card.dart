@@ -41,7 +41,7 @@ class QuoteCard extends StatelessWidget {
                   color: Colors.black,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () => delete(), // Call the delete function here
                   child: const Text('Delete'),
                 ),
               ],
